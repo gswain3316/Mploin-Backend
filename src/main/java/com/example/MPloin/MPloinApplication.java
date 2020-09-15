@@ -27,7 +27,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 @EnableSwagger2WebMvc
-@SpringBootApplication
+@SpringBootApplication()
 @Import(SpringDataRestConfiguration.class)
 public class MPloinApplication /* implements CommandLineRunner */ {	
 	

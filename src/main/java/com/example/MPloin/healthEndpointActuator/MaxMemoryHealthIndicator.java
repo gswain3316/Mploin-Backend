@@ -6,15 +6,13 @@ import org.springframework.boot.actuate.health.Status;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HealthEndpoint implements HealthIndicator {
+public class MaxMemoryHealthIndicator implements HealthIndicator {
 
 	@Override
 	public Health health() {
-		boolean valid = Runtime.getRuntime().maxMemory() > (100*1024*1024);
-		Status status = valid ? Status.UP : Status.DOWN;
+		boolean invalid = Runtime.getRuntime().maxMemory() < (100*1024*1024);
+		Status status = invalid ? Status.DOWN : Status.UP;
 		return Health.status(status).build();
 	}
 
-	
-	
 }
