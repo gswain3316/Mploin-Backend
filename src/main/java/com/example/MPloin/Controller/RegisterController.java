@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.example.MPloin.DataModel.Employee;
-import com.example.MPloin.DataModel.Seat;
-import com.example.MPloin.DataModel.Team;
+import com.example.MPloin.Entity.Employee;
+import com.example.MPloin.Entity.Seat;
+import com.example.MPloin.Entity.Team;
 import com.example.MPloin.Repository.EmplRepository;
 import com.example.MPloin.Repository.SeatRepository;
 import com.example.MPloin.Repository.TeamRepository;
@@ -68,7 +68,7 @@ public class RegisterController {
 	public ResponseEntity<Object> registeremployee(@Valid @RequestBody Employee empl) throws Exception {
 		Employee emp = empRepo.save(empl);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{empl_email}")
-				.buildAndExpand(emp.getemail()).toUri();
+				.buildAndExpand(emp.getEmail()).toUri();
 //		return "Registration is completed successfully !!";
 		return ResponseEntity.created(location).build();
 	}

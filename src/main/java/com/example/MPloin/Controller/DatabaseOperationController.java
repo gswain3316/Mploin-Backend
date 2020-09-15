@@ -25,8 +25,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.MPloin.DataModel.Employee;
-import com.example.MPloin.DataModel.Team;
+import com.example.MPloin.Entity.Employee;
+import com.example.MPloin.Entity.Team;
 import com.example.MPloin.Repository.EmplRepository;
 import com.example.MPloin.Repository.TeamRepository;
 import com.example.MPloin.Service.DatabaseOperationService;
@@ -77,10 +77,10 @@ public class DatabaseOperationController {
 		Employee empl = emp.get();
 		if(emp.isPresent())
 			{
-			
-			empl.setemail(employee.getemail());
+
+			empl.setEmail(employee.getEmail());
 			empl.setEmpl_name(employee.getEmpl_name());
-			empl.setpassword(employee.getpassword());
+			empl.setPassword(employee.getPassword());
 			empl.setGender(employee.getGender());
 			emp_repo.save(empl);
 			

@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.example.MPloin.DataModel.Employee;
+import com.example.MPloin.Entity.Employee;
 
 @Repository
 public interface EmplRepository extends MongoRepository<Employee, String> {

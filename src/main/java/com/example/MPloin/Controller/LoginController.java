@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.example.MPloin.DataModel.Employee;
+import com.example.MPloin.Entity.Employee;
 import com.example.MPloin.Service.LoginService;
 import com.example.MPloin.Service.SecurityTokenGenerator;
 
@@ -44,8 +44,8 @@ public class LoginController {
 	@PostMapping("/login")
 	public ResponseEntity<?> loginUser(@RequestBody Employee loginDetail) {
 		try {
-			String userId = loginDetail.getemail();
-			String password = loginDetail.getpassword();
+			String userId = loginDetail.getEmail();
+			String password = loginDetail.getPassword();
 			
 			if(userId == null || password == null) {
 				throw new Exception("Username or Password cannot be empty");
@@ -54,7 +54,7 @@ public class LoginController {
 			if(user == null) {
 				throw new Exception("User with given Id does not exists");
 			}
-			String pwd = user.getpassword();
+			String pwd = user.getPassword();
 			if(!password.equals(pwd)) {
 				throw new Exception("Invalid login credential, Please check username and password");
 			}
