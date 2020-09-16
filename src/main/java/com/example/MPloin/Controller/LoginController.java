@@ -2,6 +2,8 @@ package com.example.MPloin.Controller;
 
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +44,7 @@ public class LoginController {
 	
 	
 	@PostMapping("/login")
-	public ResponseEntity<?> loginUser(@RequestBody Employee loginDetail) {
+	public ResponseEntity<?> loginUser(@Valid @RequestBody Employee loginDetail) {
 		try {
 			String userId = loginDetail.getEmail();
 			String password = loginDetail.getPassword();

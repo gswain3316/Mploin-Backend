@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.reactive.HttpHandlerAutoConfiguration.AnnotationConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -56,7 +58,7 @@ public class DatabaseOperationController {
 	}
 	
 	@PostMapping("/addTeams")
-	public ResponseEntity<Object> addTeams (@RequestBody Team team){
+	public ResponseEntity<Object> addTeams (@Valid @RequestBody Team team){
 		
 		teamRepo.insert(team);
 		List<Team> response = teamRepo.findAll().stream().collect(Collectors.toList());
@@ -64,13 +66,13 @@ public class DatabaseOperationController {
 	}
 	
 	@PostMapping("/addEmployee")
-	public ResponseEntity<Object> addEmployee(@RequestBody Employee emp)
+	public ResponseEntity<Object> addEmployee(@Valid @RequestBody Employee emp)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(emp_repo.insert(emp));
 	}
 	
 	@PutMapping("/updateEmployeeData")
-	public Employee updateEmployee(@RequestParam String email, 
+	public Employee updateEmployee(@Valid @RequestParam String email, 
 			@RequestBody Employee employee)
 	{
 		Optional<Employee> emp = emp_repo.findByEmail(email);
@@ -97,7 +99,7 @@ public class DatabaseOperationController {
 	}
 	
 	@DeleteMapping("/deleteEmployee")
-	public String deleteEmployee(@RequestParam String id)
+	public String deleteEmployee(@Valid @RequestParam String id)
 	{
 		emp_repo.deleteById(id);
 		return "Employee deleted successfully from database !!";

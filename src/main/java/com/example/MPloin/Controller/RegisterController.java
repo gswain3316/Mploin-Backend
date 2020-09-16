@@ -60,7 +60,7 @@ public class RegisterController {
 	}
 
 	@GetMapping("/joinTeam")
-	public ResponseEntity<Object> joinTeam(@RequestParam Long team_code) {
+	public ResponseEntity<Object> joinTeam(@Valid @RequestParam Long team_code) {
 		return registerServ.joinTeam(team_code);
 	}
 
@@ -82,7 +82,7 @@ public class RegisterController {
 	}
 
 	@PutMapping("/registerPassword")
-	public String registerPassword(@RequestParam String empl_email, @RequestParam String empl_password)
+	public String registerPassword(@Valid @RequestParam String empl_email, @RequestParam String empl_password)
 			throws Exception {
 		ResponseEntity<Object> result = registerServ.registerPassword(empl_email, empl_password);
 		if (result.getStatusCode() == HttpStatus.OK)
@@ -92,7 +92,7 @@ public class RegisterController {
 	}
 
 	@GetMapping("/findEmployeeByExample")
-	public List<Employee> getEmployeeByExample(@RequestBody Employee emp) {
+	public List<Employee> getEmployeeByExample(@Valid @RequestBody Employee emp) {
 		return registerServ.getEmployeeByEx(emp);
 	}
 

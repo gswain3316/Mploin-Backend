@@ -9,6 +9,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 import com.example.MPloin.Entity.Employee;
 import com.example.MPloin.Entity.Seat;
@@ -40,8 +45,7 @@ public class MPloinApplication /* implements CommandLineRunner */ {
 				.apiInfo(getApiInfo());
 	}
 	
-	
-	
+
 	private ApiInfo getApiInfo() {
 		return new ApiInfoBuilder()
 				.title("Mploin Application API")
@@ -51,7 +55,6 @@ public class MPloinApplication /* implements CommandLineRunner */ {
 				.license("Apache License Version 2.0")
 				.build();
 	}
-
 
 	/*
 	 * @Autowired SeatRepository seatRepo;
@@ -72,7 +75,6 @@ public class MPloinApplication /* implements CommandLineRunner */ {
 	 * }
 	 */
 	 
-
 	public static void main(String[] args) {
 		SpringApplication.run(MPloinApplication.class, args);
 	}
