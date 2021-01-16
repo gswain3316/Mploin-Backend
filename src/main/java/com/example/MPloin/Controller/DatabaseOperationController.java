@@ -27,7 +27,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.MPloin.Entity.Employee;
 import com.example.MPloin.Entity.Team;
 import com.example.MPloin.Repository.EmplRepository;
 import com.example.MPloin.Repository.TeamRepository;
@@ -35,6 +34,7 @@ import com.example.MPloin.Service.DatabaseOperationService;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mploin.projects.Model.Employee;
 
 @RestController
 public class DatabaseOperationController {

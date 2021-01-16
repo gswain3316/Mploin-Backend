@@ -1,8 +1,11 @@
 package com.example.MPloin;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,10 +18,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-import com.example.MPloin.Entity.Employee;
+import com.example.MPloin.Constants.Constants;
+import com.example.MPloin.Constants.SwaggerURL;
+import com.example.MPloin.Dto.LoginDto;
 import com.example.MPloin.Entity.Seat;
 import com.example.MPloin.Repository.EmplRepository;
 import com.example.MPloin.Repository.SeatRepository;
+import com.example.MPloin.Entity.Employee;
 
 import io.swagger.models.License;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -34,7 +40,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @EnableSwagger2WebMvc
 @SpringBootApplication()
 @Import(SpringDataRestConfiguration.class)
-public class MPloinApplication /* implements CommandLineRunner */ {	
+public class MPloinApplication implements CommandLineRunner  {	
+	
+	private static Logger logger = LoggerFactory.getLogger(MPloinApplication.class);
+	
+	@Autowired
+	private Constants constant;
+	
+	@Autowired
+	private SwaggerURL swagger;
+	
+	@Autowired
+	private LoginDto loginDto;
 	
 	@Bean
 	public Docket MploinApi() {
@@ -44,7 +61,6 @@ public class MPloinApplication /* implements CommandLineRunner */ {
 				.build()
 				.apiInfo(getApiInfo());
 	}
-	
 
 	private ApiInfo getApiInfo() {
 		return new ApiInfoBuilder()
@@ -77,6 +93,14 @@ public class MPloinApplication /* implements CommandLineRunner */ {
 	 
 	public static void main(String[] args) {
 		SpringApplication.run(MPloinApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		
+		logger.info(constant.getFounder());
+		logger.info(swagger.getSwaggerURL());
+		
 	}
 
 }

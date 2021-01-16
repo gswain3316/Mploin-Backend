@@ -18,5 +18,7 @@ node{
     }
     stage('Docker run container on server'){
         bat 'docker run -dp 9090:9090 gswain3316/mploin:1.0.0'
+        input message: "Shall we build more ?"
+        bat 'echo "We are approved; continue!"'
     }
 }

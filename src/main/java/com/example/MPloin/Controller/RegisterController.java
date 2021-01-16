@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.example.MPloin.Entity.Employee;
 import com.example.MPloin.Entity.Seat;
 import com.example.MPloin.Entity.Team;
 import com.example.MPloin.Repository.EmplRepository;
 import com.example.MPloin.Repository.SeatRepository;
 import com.example.MPloin.Repository.TeamRepository;
 import com.example.MPloin.Service.RegistrationService;
+import com.mploin.projects.Model.Employee;
 
 @RestController
 public class RegisterController {
