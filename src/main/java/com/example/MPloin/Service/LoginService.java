@@ -1,12 +1,11 @@
 package com.example.MPloin.Service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 
+import com.example.MPloin.Entity.Employee;
 import com.example.MPloin.Exceptions.UserAlreadyExistsException;
 import com.example.MPloin.Exceptions.UserNotFoundException;
-import com.mploin.projects.Model.Employee;
 
 public interface LoginService {
 	

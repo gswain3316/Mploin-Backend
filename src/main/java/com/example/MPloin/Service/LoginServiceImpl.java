@@ -5,10 +5,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.MPloin.Entity.Employee;
 import com.example.MPloin.Exceptions.UserAlreadyExistsException;
 import com.example.MPloin.Exceptions.UserNotFoundException;
 import com.example.MPloin.Repository.LoginRepository;
-import com.mploin.projects.Model.Employee;
 
 
 

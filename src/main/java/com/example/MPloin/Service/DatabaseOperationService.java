@@ -10,8 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.example.MPloin.Entity.Employee;
 import com.example.MPloin.Repository.EmplRepository;
-import com.mploin.projects.Model.Employee;
 
 @Service
 public class DatabaseOperationService {

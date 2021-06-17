@@ -9,10 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.MPloin.Entity.Employee;
 import com.example.MPloin.Entity.Team;
 import com.example.MPloin.Repository.EmplRepository;
 import com.example.MPloin.Repository.TeamRepository;
-import com.mploin.projects.Model.Employee;
 
 @Service
 public class RegistrationService {
